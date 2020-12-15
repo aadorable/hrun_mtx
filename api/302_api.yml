@@ -1,0 +1,12 @@
+
+name: 302 api
+
+request:
+    url: $jump_url
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    allow_redirects: False
+
+validate:
+    - eq: ["status_code", 302]

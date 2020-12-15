@@ -1,0 +1,12 @@
+
+name: pay api
+
+request:
+    url: $location
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+
+validate:
+    - eq: ["status_code", 200]
+    - contains: [content, '支付成功']

@@ -1,0 +1,48 @@
+
+config:
+    name: "comment testcase"
+
+teststeps:
+-
+    name: 登录系统
+    api: api/login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - is: [content.msg, '登录成功']
+
+-
+    name: 下订单
+    api: api/order_api.yml
+    extract:
+        - jump_url: content.data.jump_url
+        - order_id: content.data.order.id
+        - user_id: content.data.order.user_id
+    validate:
+        - eq: ["status_code", 200]
+
+-
+    name: 对302接口发起请求
+    api: api/302_api.yml
+    extract:
+        - location: headers.location
+
+-
+    name: 支付
+    api: api/pay_api.yml
+
+-
+    name: 管理员登录
+    api: api/admin_api.yml
+
+-
+    name: 发货
+    api: api/delivery_api.yml
+
+-
+    name: 收货
+    api: api/collect_api.yml
+
+-
+    name: 评价
+    api: api/comment_api.yml
+

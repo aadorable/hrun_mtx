@@ -1,0 +1,11 @@
+
+config:
+    name: "login testcase"
+
+teststeps:
+-
+    name: $title
+    api: api/login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - is: [content.msg, $exp]

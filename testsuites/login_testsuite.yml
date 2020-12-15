@@ -1,0 +1,10 @@
+
+config:
+    name: "login testsuite"
+
+testcases:
+-
+    name: 登录接口进行参数化
+    testcase: testcases/login_testcase.yml
+    parameters:
+        title-username-password-exp: ${P(./data/login_data.csv)}

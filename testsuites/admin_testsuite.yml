@@ -1,0 +1,8 @@
+
+config:
+    name: "admin testsuite"
+
+testcases:
+-
+    name: 管理员登录接口测试用例
+    testcase: testcases/admin_testcase.yml

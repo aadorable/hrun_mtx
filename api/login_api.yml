@@ -1,0 +1,18 @@
+
+name: login api
+base_url: ${ENV(BASE_URL)}
+variables:
+    username: ${ENV(USERNAME)}
+    password: ${ENV(PASSWORD)}
+
+request:
+    url: /mtx/index.php?s=/index/user/login.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    data:
+        accounts: $username
+        pwd: $password
+
+validate:
+    - eq: ["status_code", 200]

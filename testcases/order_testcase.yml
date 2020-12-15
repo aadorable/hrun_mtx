@@ -1,0 +1,17 @@
+
+config:
+    name: "order testcase"
+
+teststeps:
+-
+    name: 登录系统
+    api: api/login_api.yml
+    validate:
+        - eq: ["status_code", 200]
+        - is: [content.msg, '登录成功']
+
+-
+    name: 下订单
+    api: api/order_api.yml
+    validate:
+        - eq: ["status_code", 200]

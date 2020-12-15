@@ -1,0 +1,18 @@
+
+name: delivery api
+base_url: ${ENV(BASE_URL)}
+
+request:
+    url: /mtx/admin.php?s=/order/delivery.html
+    method: POST
+    headers:
+        X-Requested-With: 'XMLHttpRequest'
+    data:
+        express_number: 2345777666
+        id: $order_id
+        express_id: 1
+        user_id: $user_id
+
+validate:
+    - eq: ["status_code", 200]
+    - is: [content.msg, '发货成功']

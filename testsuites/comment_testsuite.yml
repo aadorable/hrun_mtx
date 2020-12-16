@@ -4,5 +4,5 @@ config:
 
 testcases:
 -
-    name: 评价接口测试用例
+    name: 评价商品接口测试用例
     testcase: testcases/comment_testcase.yml
